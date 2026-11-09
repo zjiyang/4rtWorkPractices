@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Daily sketches</title>
+  <style>
+    body {
+      display: flex;
+      gap: 40px;
+      padding: 40px;
+      font-family: sans-serif;
+    }
+    iframe {
+      width: min(800px, 60vw);
+      aspect-ratio: 1;
+      border: none;
+      align-self: flex-start;
+    }
+    #side {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 316px;
+    }
+    #side h3 {
+      margin-top: 0;
+    }
+    #big {
+      flex: 1;
+      min-height: 0;
+      margin-top: 24px;
+    }
+    #big img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left bottom;
+      display: block;
+    }
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 40px);
+      gap: 6px;
+      align-content: start;
+    }
+    .day {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ccc;
+      background: white;
+      color: #ccc;
+      font-size: 14px;
+    }
+    .day.has-sketch {
+      border-color: black;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+    .day.active {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="viewer"></iframe>
+  <div id="side">
+    <h3 id="title"></h3>
+    <div id="calendar"></div>
+    <div id="big"></div>
+  </div>
+  <script src="calendar.js"></script>
+</body>
+</html>

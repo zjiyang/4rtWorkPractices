@@ -25,10 +25,24 @@
     #side h3 {
       margin-top: 0;
     }
+    #note {
+      margin-top: 90px;
+      max-width: 316px;
+      font-family: sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    #note:empty {
+      display: none;
+    }
+    #note p {
+      margin: 0 0 0.8em;
+    }
     #big {
       flex: 1;
       min-height: 0;
       margin-top: 24px;
+      max-width: 316px;
     }
     #big img {
       width: 100%;
@@ -67,6 +81,7 @@
   <div id="side">
     <h3 id="title"></h3>
     <div id="calendar"></div>
+    <div id="note"></div>
     <div id="big"></div>
   </div>
   <script src="calendar.js"></script>

@@ -19,7 +19,7 @@ function draw() {
     let waveY = cos(radians(t) * 1) * 300;
 
     for (let i = 0; i < 10; i++) {
-        fill (waveX + 90, waveY + 90, 150, 180)
+        fill (255, 255, 255, 120);
       ellipse(width/2 + i * 3 + waveX,
         height/2 + waveY + i * 3,
         2, 2);

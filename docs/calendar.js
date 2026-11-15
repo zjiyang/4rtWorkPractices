@@ -14,7 +14,7 @@ const sketches = {
     '2026-11-11': [],
     '2026-11-12': [],
     '2026-11-13': [],
-    // '2026-11-14': [],
+    '2026-11-14': [],
     // '2026-11-15': [],
     // '2026-11-16': [],
     // '2026-11-17': [],
@@ -40,6 +40,7 @@ const month = 11;   // 11 月
 const calendar = document.getElementById('calendar');
 const viewer = document.getElementById('viewer');
 const big = document.getElementById('big');
+const note = document.getElementById('note');
 document.getElementById('title').textContent = `${year} / ${month}`;
 
 // 这个月有几天、1 号是星期几
@@ -70,6 +71,39 @@ function show(date, btn) {
   document.querySelectorAll('.day').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   showRefs(date);
+  showNote(date);
+}
+// iframe 的高度跟着 sketch 页面的内容走
+// 页面里只有画布 → 还是正方形；画布下面加了滑块之类的 → 自动变长
+let observer = null;
+viewer.addEventListener('load', () => {
+  if (observer) observer.disconnect();
+  const doc = viewer.contentDocument;
+  const body = doc.body;
+  // 画布默认是"行内元素"，下面会多出几像素空隙；改成 block 去掉它
+  const style = doc.createElement('style');
+  style.textContent = 'canvas { display: block; }';
+  doc.head.appendChild(style);
+  const fit = () => {
+    viewer.style.height = body.scrollHeight + 'px';
+  };
+  observer = new ResizeObserver(fit);   // 内容高度一变，就重新量一次
+  observer.observe(body);
+  fit();
+});
+
+// 在日历下面显示这一天的文字
+// 文字写在 sketches/日期/note.html 里；没有这个文件就什么都不显示
+let currentDate = null;
+function showNote(date) {
+  currentDate = date;
+  note.innerHTML = '';
+  fetch(`sketches/${date}/note.html`)
+    .then(res => (res.ok ? res.text() : ''))
+    .then(html => {
+      if (date === currentDate) note.innerHTML = html;   // 防止点太快，显示成上一天的文字
+    })
+    .catch(() => {});
 }
 
 // 在日历下面显示这一天的参考图

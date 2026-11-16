@@ -56,3 +56,8 @@ function mousePressed() {
         loop();
     }
 }
+
+function touchMoved() {
+    tileSize = constrain(map(mouseX, 0, width, 10, 100), 10, 100);
+    return false;
+}

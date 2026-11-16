@@ -21,3 +21,7 @@ function draw()
     ellipse(mouseX,mouseY,i*30,i*30);
   }
 }
+
+function touchMoved() {
+    return false;
+}

@@ -15,3 +15,7 @@ function draw() {
         ellipse(i * w, height / 2, w, w);
     }
 }
+
+function touchMoved() {
+    updateTiles();
+}

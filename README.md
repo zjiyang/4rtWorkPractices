@@ -4,7 +4,7 @@ A daily creative coding practice: one small p5.js sketch a day, collected on a c
 
 **Live site:** https://zjiyang.github.io/4rtWorkPractices/
 
-Pick a day on the calendar to run that day's sketch. Days that have reference images show them below the calendar; when a day has more than one, click the image to see the next.
+Pick a day on the calendar to run that day's sketch. Some days have a short note below the calendar, such as the sketch's title or how to interact with it. Days that have reference images show them below that; when a day has more than one, click the image to see the next.
 
 ## About
 
@@ -32,6 +32,7 @@ docs/
     └── 2026-11-10/
         ├── index.html    loads p5.js and the sketch
         ├── sketch.js     the day's sketch
+        ├── note.html     optional: a short note shown under the calendar
         └── references/   reference images for that day
 ```
 
@@ -48,8 +49,9 @@ The page loads sketches and images from local files, which browsers block when y
 
 1. Create a branch from `main`, e.g. `sketch/2026-11-15`
 2. Write the sketch in `docs/sketches/2026-11-15/sketch.js` and put any reference images in its `references/` folder
-3. In `docs/calendar.js`, uncomment that date and list its reference images, e.g. `'2026-11-15': ['still-01.jpg'],`
-4. Check it with Live Server, then commit, open a pull request and merge into `main`
+3. Optionally, add a `note.html` in the same folder. It's a small piece of HTML (a title, a line about how to interact) and is styled inline, e.g. `<p style="font-size: 12px;">`. No other setup is needed: the page shows the note if the file is there and shows nothing if it isn't
+4. In `docs/calendar.js`, uncomment that date and list its reference images, e.g. `'2026-11-15': ['still-01.jpg'],`
+5. Check it with Live Server, then commit, open a pull request and merge into `main`
 
 `main` is what's live. GitHub Pages redeploys a minute or two after each merge.
 

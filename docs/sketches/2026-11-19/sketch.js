@@ -2,7 +2,7 @@
 let helvetica;
 const CAP = 0.717;
 
-let text1 = "Nothing to show today, because I'm tired.";
+let text1 = "You lose the Now, and you return to it, again and again. Eventually, presence becomes your predominant state.";
 
 function preload(){
    //data = loadImage('assets/filename.jpg')
@@ -35,7 +35,8 @@ function draw() {
     let fontSize = (rowH / CAP) * 0.90;
     textSize(fontSize);
     textAlign(LEFT, TOP);
-    let w = textWidth(text1.toLocaleUpperCase());
+    let t = text1.toUpperCase();
+    let w = textWidth(t);
     
 
     for (let i = 0; i < rowN; i++) {
@@ -50,6 +51,6 @@ function draw() {
 
         let x = width - ((frameCount - 1) * speed % (width + w));
         let y = rowH * i - 1;
-        text(text1.toUpperCase(), x, y);
+        text(t, x, y);
     }
 }

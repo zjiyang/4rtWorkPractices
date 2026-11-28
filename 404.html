@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Jiyang Zhang</title>
+  <!-- GitHub Pages shows this page for any old address that doesn't exist here.
+       Keep the part after /4rtWorkPractices/ and send the visitor to the same place on the new site, e.g.
+       /4rtWorkPractices/sketches/2026-11-10/index.html → /portfolio/sketches/2026-11-10/index.html -->
+  <script>
+    const OLD = '/4rtWorkPractices/';
+    const NEW = 'https://zjiyang.github.io/portfolio/';
+    const path = location.pathname;
+    const rest = path.startsWith(OLD) ? path.slice(OLD.length) : '';
+    location.replace(NEW + rest + location.search + location.hash);
+  </script>
+</head>
+<body>
+  <p>This site has moved to <a href="https://zjiyang.github.io/portfolio/">zjiyang.github.io/portfolio</a>.</p>
+</body>
+</html>
